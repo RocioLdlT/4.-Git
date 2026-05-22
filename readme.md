@@ -48,7 +48,7 @@ Git reset <5 primeros caracteres al que quiero volver (aunque se haya quedado hu
 Git reset <hash commit (5 primeros caracteres mínimo)> --soft te deshace el commit hecho, te lleva a ese commit y te lo deja en la working area, por tanto puedes modificar el título o el contenido en tu zona de trabajo (es como darle a deshacer el último commit a través de VSC).
 Git reset es muy útil cuando trabajamos individualmente o en local.
 
-- Git commit --amend: hace lo mismo que reset pero ya sabe que es con el último commit. Típico para cambiar el título del último commit. Rehace el último commit y el anterior queda huérfano.
+- Git commit --amend: hace lo mismo que reset pero ya sabe que es con el último commit. Típico para cambiar el título del último commit. Rehace el último commit (contenido también) y el anterior queda huérfano.
 
 - git restore: creado a partir de git checkout, realiza todas las operaciones de checkout NO relativas a ramas. Restaura lo anterior?
 - git switch: creado a partir de git checkout, realiza todas las operaciones de checkout relativas a ramas. No se usa, se sigue usando git checkout.
@@ -76,13 +76,17 @@ Comandos para trabajar con ramas
       -> git merge: por defecto actualiza la rama con los nuevo commits. A esto se le llama Fast fordward. 
       -> git merge --no-ff Patatillas: en el caso de que haya bifurcación real (MAIN ha continuado creciendo por un lado y Patatillas también pero por otro lado) para que no se pierda ninguno de esos commits bifurcados, crea un commit recogiendo, reconciliando y agrupando a los dos hijos. Puede usarse git merge también peeeero  no se quedarán especificado de dónde vienen los dos hijos concretamente, por lo que es preferible usar git merge --no-ff Patatillas
 
+  - git push -f. Por ejemplo:
+          1. Subimos un commit a GitHub
+          2. Lo hemos modificado en nuestro local borrando el último titulo del commit pusheado a GitHub.
+          3. Tenemos en local una cosa y en GitHub otra.
+          4. Forzamos que suba lo que tenemos en local a GitHub con git push -f porque estamos seguros de que queremos que lo actualice.
+
 ## PULL REQUEST
 
 Sirven para informar a nuestro equipo sobre en qué estamos invirtiendo nuestro trabajo. 
 Podremos interaccionar con el equipo en ellas para que se revisen las pull request. 
 El enfoque es compartir la información entre el equipo.
-
-
 
 
 ## DETALLES
